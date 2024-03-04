@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question Box & Button Randomly Change Position | Codehal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <i class="fa-solid fa-circle-question"></i>
+        <h2 class="question">Do You Want To BreakUp ? 🥺</h2>
+        <div class="btn-group">
+            <button class="yes-btn">NO</button>
+            <button class="no-btn">YES</button>
+        </div>
+    </div>
+
+    <script>
+        const question = document.querySelector('.question');
+        const yesBtn = document.querySelector('.yes-btn');
+        const noBtn = document.querySelector('.no-btn');
+
+        const wrapper = document.querySelector('.wrapper');
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const noBtnRect = noBtn.getBoundingClientRect();
+
+        yesBtn.addEventListener('click', () => {
+            question.innerHTML = 'Hurrayyyyyyyy 🥳 <br> I Love You Too Meri Jaan ❤️';
+          document.body.style.backgroundImage = "url('https://tenor.com/en-GB/view/detective-pikachu-pokémon-anime-smile-gif-14844414.gif')"; // Change 'https://tenor.com/bM7P9.gif' with your GIF URL
+
+
+            setTimeout(() => {
+                window.location.href = 'https://code-indol-rho.vercel.app/'; // Change 'your_redirect_link_here' with your link
+            }, 4000); // 4000 milliseconds = 4 seconds
+        });
+
+        noBtn.addEventListener('mouseover', () => {
+            const i = Math.floor(Math.random() * (wrapperRect.width - noBtnRect.width)) + 1;
+            const j = Math.floor(Math.random() * (wrapperRect.height - noBtnRect.height)) + 1;
+
+            noBtn.style.left = i + 'px';
+            noBtn.style.top = j + 'px';
+        });
+    </script>
+</body>
+
+</html>
